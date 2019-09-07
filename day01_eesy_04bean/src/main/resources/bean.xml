@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<bean id="accountService" class="com.zyn.service.impl.AccountService"></bean>-->
+    <!--
+        1.创建bean的三种方式
+        2.bean的作用范围
+        3.bean的生命周期
+    -->
+
+    <!--创建bean的三种方式-->
+    <!--默认方式:在配置文件中，配以id以及class标签后，采用的就是默认构造函数创建bean对象，此时如果类中没有默认构造，则无法创建-->
+    <!--<bean id="instanceFactory" class="com.zyn.factory.InstanceFactory"></bean>-->
+    <!--使用普通工厂创建对象-->
+    <!--<bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"></bean>-->
+    <!--使用静态工厂中的静态方法-->
+    <bean id="accountService" class="com.zyn.factory.StaticFactory" factory-method="getAccountService"></bean>
+    <!--scope
+        singleton:单例
+        prototype:多例
+        request:作用于web应用的请求范围
+        session:作用于web应用的会话范围
+        global-session:作用于集群环境的会话范围
+    -->
+</beans>
